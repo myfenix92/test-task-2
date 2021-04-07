@@ -66,6 +66,16 @@ button {
   text-indent: 10000px;
 }
 
+.circle:hover {
+  border: 2px solid;
+  cursor: pointer;
+}
+
+.highlight {
+  -webkit-filter: brightness(55%);
+          filter: brightness(55%);
+}
+
 .red {
   background: #FF5643;
   clip: rect(0px, 300px, 150px, 150px);
