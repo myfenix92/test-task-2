@@ -7,11 +7,6 @@ import {eventBus} from "../main"
 
 export default {
   name: 'ButtonBlock',
-  // data() {
-  //   // return {
-  //   //   arraySoundNum: [],
-  //   // }
-  // },
 
   methods: {
 
@@ -27,6 +22,7 @@ export default {
 
     play() {
       this.randomNumber()
+      let levelTime = Number(Array.from(document.querySelectorAll('input')).find(el => el.checked).value)
      let circle = document.querySelectorAll('.circle');
       for (let i = 0; i < this.$root.arraySoundNum.length; i++) {
         let audio = new Audio(require(`../assets/sounds/${this.$root.arraySoundNum[i]}.mp3`))
@@ -34,17 +30,17 @@ export default {
          setTimeout(function timer() {
           audio.play();
           circle[addClass-1].classList.add('highlight')
-          }, i * 1500);
+          }, i * levelTime);
           setTimeout(() => {
           circle.forEach((el) => {
           el.classList.remove('highlight')
         })
-          }, (i * 1500) + 200)
+          }, (i * levelTime) + 200)
       }
     },
   },
 
-    created() {
+    mounted() {
     eventBus.$on('play', () => {
       this.play();
     })
