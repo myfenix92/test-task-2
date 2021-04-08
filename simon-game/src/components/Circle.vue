@@ -26,7 +26,7 @@ export default {
         circle.forEach((el) => {
           el.classList.remove('highlight');
         });
-      }, this.$root.timeHightlight);
+      }, this.$root.timeHighlight);
       if (Number(event.target.dataset.title)
       === this.$root.arraySoundNum[this.$root.stepCheckCircle]) {
         this.$root.stepCheckCircle += 1;

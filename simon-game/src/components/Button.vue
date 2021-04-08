@@ -36,7 +36,7 @@ export default {
           circle.forEach((el) => {
             el.classList.remove('highlight');
           });
-        }, (i * levelTime) + this.$root.timeHightlight);
+        }, (i * levelTime) + this.$root.timeHighlight);
       }
     },
 
