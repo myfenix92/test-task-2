@@ -33,12 +33,14 @@ export default {
           setTimeout(() => {
             eventBus.$emit('play')
           }, 800)
-          eventBus.$emit('msgGame')
+          
         } 
       } else {
+        this.$root.arraySoundNum = []
+        eventBus.$emit('msgGame')
         this.$root.step = 0
         this.$root.level = 0
-        this.$root.arraySoundNum = []
+        
       }
     }
   }
