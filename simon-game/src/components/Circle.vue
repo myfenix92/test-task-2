@@ -29,18 +29,15 @@ export default {
       if (Number(event.target.dataset.title) === this.$root.arraySoundNum[this.$root.step]) {
         this.$root.step++
         if (this.$root.step === this.$root.arraySoundNum.length) {
-          this.$root.level++
           setTimeout(() => {
             eventBus.$emit('play')
           }, 800)
           
         } 
       } else {
+        eventBus.$emit('msgGame', true)
         this.$root.arraySoundNum = []
-        eventBus.$emit('msgGame')
         this.$root.step = 0
-        this.$root.level = 0
-        
       }
     }
   }
