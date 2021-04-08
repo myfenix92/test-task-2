@@ -9,37 +9,38 @@
       </div>
 </template>
 
-
 <script>
-import {eventBus} from "../main"
+import { eventBus } from '../main';
+
 export default {
   name: 'CircleBlock',
-  
+
   methods: {
     checkCircle(event) {
-      let circle = document.querySelectorAll('.circle');
-       let audio = new Audio(require(`../assets/sounds/${event.target.dataset.title}.mp3`))
-        audio.play()
-        event.target.classList.add('highlight')
-        setTimeout(() => {
-          circle.forEach((el) => {
-          el.classList.remove('highlight')
-        })
-          }, this.$root.timeHightlight)
-      if (Number(event.target.dataset.title) === this.$root.arraySoundNum[this.$root.step]) {
-        this.$root.step++
-        if (this.$root.step === this.$root.arraySoundNum.length) {
+      const circle = document.querySelectorAll('.circle');
+      // eslint-disable-next-line import/no-dynamic-require
+      const audio = new Audio(require(`../assets/sounds/${event.target.dataset.title}.mp3`)); // eslint-disable-line global-require
+      audio.play();
+      event.target.classList.add('highlight');
+      setTimeout(() => {
+        circle.forEach((el) => {
+          el.classList.remove('highlight');
+        });
+      }, this.$root.timeHightlight);
+      if (Number(event.target.dataset.title)
+      === this.$root.arraySoundNum[this.$root.stepCheckCircle]) {
+        this.$root.stepCheckCircle += 1;
+        if (this.$root.stepCheckCircle === this.$root.arraySoundNum.length) {
           setTimeout(() => {
-            eventBus.$emit('play')
-          }, this.$root.timePauseSound)
-          
-        } 
+            eventBus.$emit('play');
+          }, this.$root.timePauseSound);
+        }
       } else {
-        eventBus.$emit('msgGame', true)
-        this.$root.arraySoundNum = []
-        this.$root.step = 0
+        eventBus.$emit('msgGame', true);
+        this.$root.arraySoundNum = [];
+        this.$root.stepCheckCircle = 0;
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>

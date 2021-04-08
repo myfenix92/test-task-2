@@ -14,16 +14,16 @@
 </template>
 
 <script>
-import ButtonBlock from './components/Button.vue'
-import CircleBlock from './components/Circle.vue'
-import LevelBlock from './components/Level.vue'
+import ButtonBlock from './components/Button.vue';
+import CircleBlock from './components/Circle.vue';
+import LevelBlock from './components/Level.vue';
 
 export default {
   name: 'App',
   components: {
     CircleBlock,
     ButtonBlock,
-    LevelBlock
-  }
-}
+    LevelBlock,
+  },
+};
 </script>
