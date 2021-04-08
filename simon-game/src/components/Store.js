@@ -1,6 +1,6 @@
 export default {
   stepCheckCircle: 0,
   arraySoundNum: [],
-  timeHightlight: 200,
+  timeHightlight: 300,
   timePauseSound: 800,
 };
