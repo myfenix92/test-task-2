@@ -14,12 +14,7 @@
 import {eventBus} from "../main"
 export default {
   name: 'CircleBlock',
-  // data() {
-  //   return {
-  //     countRound: 0,
-  //   }
-  // },
-
+  
   methods: {
     checkCircle(event) {
       let circle = document.querySelectorAll('.circle');
@@ -31,14 +26,15 @@ export default {
           el.classList.remove('highlight')
         })
           }, 200)
-      if (+event.target.dataset.title === this.$root.arraySoundNum[this.$root.step]) {
+      if (Number(event.target.dataset.title) === this.$root.arraySoundNum[this.$root.step]) {
         this.$root.step++
         if (this.$root.step === this.$root.arraySoundNum.length) {
           this.$root.level++
           setTimeout(() => {
             eventBus.$emit('play')
-          }, 500)
-        }
+          }, 800)
+          eventBus.$emit('msgGame')
+        } 
       } else {
         this.$root.step = 0
         this.$root.level = 0
