@@ -1,5 +1,5 @@
 <template>
-        <div class="circle-block">
+        <div class="circle-block reset-game-event">
         <ul>
           <li @click="checkCircle" class="red circle" data-title="1"></li>
           <li @click="checkCircle" class="green circle" data-title="2"></li>
