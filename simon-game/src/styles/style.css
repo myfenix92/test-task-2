@@ -74,6 +74,7 @@ button {
 .highlight {
   -webkit-filter: brightness(55%);
           filter: brightness(55%);
+  pointer-events: none;
 }
 
 .red {
