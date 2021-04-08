@@ -36,6 +36,7 @@ export default {
           }, this.$root.timePauseSound);
         }
       } else {
+        document.querySelector('.circle-block').classList.add('reset-game-event');
         eventBus.$emit('msgGame', true);
         this.$root.arraySoundNum = [];
         this.$root.stepCheckCircle = 0;

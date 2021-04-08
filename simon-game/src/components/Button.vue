@@ -24,6 +24,7 @@ export default {
       this.$root.level = this.$root.arraySoundNum.length;
       const levelTime = Number(Array.from(document.querySelectorAll('input')).find((el) => el.checked).value);
       const circle = document.querySelectorAll('.circle');
+      document.querySelector('.circle-block').classList.add('reset-game-event');
       for (let i = 0; i < this.$root.arraySoundNum.length; i += 1) {
         // eslint-disable-next-line import/no-dynamic-require
         const audio = new Audio(require(`../assets/sounds/${this.$root.arraySoundNum[i]}.mp3`)); // eslint-disable-line global-require
@@ -37,12 +38,16 @@ export default {
             el.classList.remove('highlight');
           });
         }, (i * levelTime) + this.$root.timeHighlight);
+        setTimeout(() => {
+          document.querySelector('.circle-block').classList.remove('reset-game-event');
+        }, this.$root.arraySoundNum.length * levelTime);
       }
     },
 
     resetGame() {
       eventBus.$emit('msgGame', false);
       this.$root.arraySoundNum = [];
+      document.querySelector('.circle-block').classList.remove('reset-game-event');
     },
   },
 
