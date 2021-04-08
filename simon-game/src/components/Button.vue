@@ -1,5 +1,5 @@
 <template>
-  <button @click="play">Старт</button>
+  <button @click="resetGame(); play()">Старт</button>
 </template>
 
 <script>
@@ -21,7 +21,9 @@ export default {
     },
 
     play() {
+      
       this.randomNumber()
+      this.$root.level = this.$root.arraySoundNum.length
       let levelTime = Number(Array.from(document.querySelectorAll('input')).find(el => el.checked).value)
      let circle = document.querySelectorAll('.circle');
       for (let i = 0; i < this.$root.arraySoundNum.length; i++) {
@@ -38,6 +40,11 @@ export default {
           }, (i * levelTime) + 200)
       }
     },
+
+      resetGame() {
+    eventBus.$emit('msgGame', false)
+    this.$root.arraySoundNum = []
+  },
   },
 
     mounted() {
