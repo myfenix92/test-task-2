@@ -25,13 +25,13 @@ export default {
           circle.forEach((el) => {
           el.classList.remove('highlight')
         })
-          }, 200)
+          }, this.$root.timeHightlight)
       if (Number(event.target.dataset.title) === this.$root.arraySoundNum[this.$root.step]) {
         this.$root.step++
         if (this.$root.step === this.$root.arraySoundNum.length) {
           setTimeout(() => {
             eventBus.$emit('play')
-          }, 800)
+          }, this.$root.timePauseSound)
           
         } 
       } else {
