@@ -42,7 +42,7 @@ export default {
           circle.forEach((el) => {
             el.classList.remove('highlight');
           });
-        }, (i * levelTime) + this.$root.timeHighlight);
+        }, ((i * levelTime) + (levelTime / 2)));
         setTimeout(() => {
           document.querySelector('.circle-block').classList.remove('reset-game-event');
         }, this.$root.arraySoundNum.length * levelTime);
